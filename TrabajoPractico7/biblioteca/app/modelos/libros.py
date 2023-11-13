@@ -67,7 +67,7 @@ def actualizar_libro_xid(id_libro,nuevo_titulo=None,nuevo_autor=None,nuevo_anio=
                 
 def importar_libros_csv(): #trae el archivo a una lista de diccionarios
     if verificador_ruta() == True:
-        with open(ruta_csv_libros, newline='') as csvLibros:
+        with open(ruta_csv_libros, newline='', encoding='utf-8') as csvLibros:
             leer_archivo = csv.DictReader(csvLibros)
             libros.clear()
             for linea in leer_archivo:
@@ -84,7 +84,7 @@ def importar_libros_csv(): #trae el archivo a una lista de diccionarios
 def exportar_libros_csv(): #actualiza el archivo libros.csv
     if verificador_ruta() == True:
         #abre el archivo con "w" para sobreescribirlo
-        with open(ruta_csv_libros,"w",newline='') as csvLibros:
+        with open(ruta_csv_libros,"w",newline='', encoding='utf-8') as csvLibros:
             header = ["id", "titulo", "autor","anio_publicacion"]
             writer = csv.DictWriter(csvLibros, fieldnames=header)
             
